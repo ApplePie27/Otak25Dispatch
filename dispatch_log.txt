@@ -1,0 +1,21 @@
+Report Number: REPORT-1
+Location: laval
+Code/Situation: stolen bag
+Caller ID: D4
+Description: RED BACKPACK
+Contact Route: DISCORD
+Resolved: Yes
+Start Time: Thu Feb 20 15:36:23 2025
+End Time: Thu Feb 20 15:36:42 2025
+
+--------------------------
+Report Number: REPORT-2
+Location: ASDF
+Code/Situation: ASDF
+Caller ID: ASDF
+Description: ASDF
+Contact Route: ASDF
+Resolved: No
+Start Time: Thu Feb 20 15:36:34 2025
+End Time: Not Resolved
+--------------------------
