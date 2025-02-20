@@ -28,3 +28,13 @@ Resolved: Yes
 Start Time: Thu Feb 20 15:55:13 2025
 End Time: Thu Feb 20 16:40:34 2025
 --------------------------
+Report Number: REPORT-4
+Location: test
+Code/Situation: test
+Caller ID: test
+Description: test
+Contact Route: test
+Resolved: No
+Start Time: Thu Feb 20 16:48:22 2025
+End Time: Not Resolved
+--------------------------

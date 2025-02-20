@@ -22,7 +22,7 @@ void addCall(vector<DispatchCall>& calls) {
     DispatchCall call;
     call.reportNumber = generateReportNumber();
 
-    cout << "Enter Location: ";
+    cout << "\n" << "Enter Location: ";
     getline(cin, call.location);
 
     cout << "Enter Code/Situation: ";
@@ -67,7 +67,7 @@ void viewAllCalls(const vector<DispatchCall>& calls) {
             ? safeTimeToString(call.endTime)
             : "Not Resolved";
 
-        cout << "Report Number: " << call.reportNumber << "\n"
+        cout << "\n" << "Report Number: " << call.reportNumber << "\n"
             << "Location: " << call.location << "\n"
             << "Code/Situation: " << call.codeSituation << "\n"
             << "Caller ID: " << call.callerID << "\n"
@@ -82,7 +82,7 @@ void viewAllCalls(const vector<DispatchCall>& calls) {
 
 void modifyCall(vector<DispatchCall>& calls) {
     string reportNumber;
-    cout << "Enter the Report Number of the call to modify: ";
+    cout << "\n" << "Enter the Report Number of the call to modify: ";
     getline(cin, reportNumber);
     reportNumber = trim(reportNumber); // Trim whitespace
 
