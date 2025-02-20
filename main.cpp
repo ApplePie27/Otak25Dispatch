@@ -7,7 +7,7 @@ using namespace std;
 
 int main() {
     vector<DispatchCall> calls;
-    cout << "VERSION 1.3 DISPATCH LOGGER - nhpha" << endl;
+    cout << "VERSION 1.5 DISPATCH LOGGER - nhpha" << endl;
 
     // Load data from file at startup
     if (loadDataFromFile(calls)) {
