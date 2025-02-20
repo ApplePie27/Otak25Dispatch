@@ -1,14 +1,26 @@
 #include "MenuHandler.h"
 #include "FileHandler.h"
 #include <iostream>
+#include <algorithm> // For std::remove_if and std::isspace
 
 using namespace std;
+
+// Helper function to trim whitespace from a string
+string trim(const string& str) {
+    auto start = str.begin();
+    auto end = str.end();
+    while (start != end && isspace(*start)) {
+        start++;
+    }
+    while (end != start && isspace(*(end - 1))) {
+        end--;
+    }
+    return string(start, end);
+}
 
 void addCall(vector<DispatchCall>& calls) {
     DispatchCall call;
     call.reportNumber = generateReportNumber();
-
-    cout << "\n";
 
     cout << "Enter Location: ";
     getline(cin, call.location);
@@ -37,8 +49,8 @@ void addCall(vector<DispatchCall>& calls) {
         call.endTime = chrono::system_clock::time_point{};
     }
 
-    calls.push_back(call);
-    logDispatchCall(call);
+    calls.push_back(call); // Add call to memory
+    logDispatchCall(call); // Log call to files
 
     cout << "Dispatch call added and logged successfully!" << endl;
 }
@@ -55,7 +67,7 @@ void viewAllCalls(const vector<DispatchCall>& calls) {
             ? safeTimeToString(call.endTime)
             : "Not Resolved";
 
-        cout << "\n" << "Report Number: " << call.reportNumber << "\n"
+        cout << "Report Number: " << call.reportNumber << "\n"
             << "Location: " << call.location << "\n"
             << "Code/Situation: " << call.codeSituation << "\n"
             << "Caller ID: " << call.callerID << "\n"
@@ -72,9 +84,10 @@ void modifyCall(vector<DispatchCall>& calls) {
     string reportNumber;
     cout << "Enter the Report Number of the call to modify: ";
     getline(cin, reportNumber);
+    reportNumber = trim(reportNumber); // Trim whitespace
 
     for (auto& call : calls) {
-        if (call.reportNumber == reportNumber) {
+        if (trim(call.reportNumber) == reportNumber) { // Trim whitespace from stored report number
             cout << "Current Details:\n";
             string startTimeStr = safeTimeToString(call.startTime);
             string endTimeStr = (call.endTime != chrono::system_clock::time_point{})
@@ -129,7 +142,7 @@ void modifyCall(vector<DispatchCall>& calls) {
                 }
                 else {
                     call.resolved = true;
-                    call.endTime = chrono::system_clock::now();
+                    call.endTime = chrono::system_clock::now(); // Set end time to current time
                     cout << "Call resolved successfully!" << endl;
                 }
                 break;
@@ -150,15 +163,16 @@ void resolveCall(vector<DispatchCall>& calls) {
     string reportNumber;
     cout << "Enter the Report Number of the call to resolve: ";
     getline(cin, reportNumber);
+    reportNumber = trim(reportNumber); // Trim whitespace
 
     for (auto& call : calls) {
-        if (call.reportNumber == reportNumber) {
+        if (trim(call.reportNumber) == reportNumber) { // Trim whitespace from stored report number
             if (call.resolved) {
                 cout << "This call is already resolved!" << endl;
             }
             else {
                 call.resolved = true;
-                call.endTime = chrono::system_clock::now();
+                call.endTime = chrono::system_clock::now(); // Set end time to current time
                 cout << "Call resolved successfully!" << endl;
             }
             return;
