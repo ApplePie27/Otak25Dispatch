@@ -40,3 +40,13 @@ Resolved: No
 Start Time: Thu Feb 20 15:43:14 2025
 End Time: Not Resolved
 --------------------------
+Report Number: REPORT-1
+Location: 2
+Code/Situation: 
+Caller ID: 
+Description: 
+Contact Route: 
+Resolved: No
+Start Time: Thu Feb 20 15:47:00 2025
+End Time: Not Resolved
+--------------------------
