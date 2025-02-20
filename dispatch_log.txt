@@ -1,52 +1,27 @@
 Report Number:  REPORT-1
-Location: laval
-Code/Situation: stolen bag
+Location: MONTREAL
+Code/Situation: STOLEN BIKE
 Caller ID: D4
-Description: RED BACKPACK
+Description: ADULT SIZED BIKE STOLEN NEAR MONT ROYAL
 Contact Route: DISCORD
 Resolved: Yes
-Start Time: Thu Feb 20 15:36:23 2025
-End Time: Thu Feb 20 15:36:42 2025
-
+Start Time: Thu Feb 20 15:54:00 2025End Time: Not Resolved
 --------------------------
 Report Number:  REPORT-2
-Location: ASDF
-Code/Situation: ASDF
-Caller ID: ASDF
-Description: ASDF
-Contact Route: ASDF
-Resolved: No
-Start Time: Thu Feb 20 15:36:34 2025
-End Time: Not Resolved
---------------------------
-Report Number: REPORT-1
-Location: MONTREAL
-Code/Situation: STOLEN BACK
-Caller ID: D4
-Description: RED BACKPACK
-Contact Route: DISCORD
-Resolved: Yes
-Start Time: Thu Feb 20 15:42:41 2025
-End Time: Thu Feb 20 15:43:27 2025
-
---------------------------
-Report Number: REPORT-2
 Location: LAVAL
 Code/Situation: FIRE
 Caller ID: K2
 Description: APPARTMENT ON FIRE
 Contact Route: RADIO
 Resolved: No
-Start Time: Thu Feb 20 15:43:14 2025
-End Time: Not Resolved
+Start Time: Thu Feb 20 15:54:18 2025End Time: Not Resolved
 --------------------------
-Report Number: REPORT-1
-Location: 2
-Code/Situation: 
-Caller ID: 
-Description: 
-Contact Route: 
+Report Number: REPORT-3
+Location: TERREBONNE
+Code/Situation: BROKEN CAR
+Caller ID: J8
+Description: CAR STOPPED WORKING
+Contact Route: MESSENGER
 Resolved: No
-Start Time: Thu Feb 20 15:47:00 2025
-End Time: Not Resolved
+Start Time: Thu Feb 20 15:55:13 2025End Time: Not Resolved
 --------------------------
