@@ -1,27 +1,30 @@
-Report Number:   REPORT-1
+Report Number:    REPORT-1
 Location: MONTREAL
 Code/Situation: STOLEN BIKE
 Caller ID: D4
 Description: ADULT SIZED BIKE STOLEN NEAR MONT ROYAL
 Contact Route: DISCORD
 Resolved: Yes
-Start Time: Thu Feb 20 15:54:00 2025End Time: Not Resolved
+Start Time: Thu Feb 20 15:54:00 2025
+End Time: Not Resolved
 --------------------------
-Report Number:   REPORT-2
+Report Number:    REPORT-2
 Location: LAVAL
 Code/Situation: FIRE
 Caller ID: K2
 Description: APPARTMENT ON FIRE
 Contact Route: RADIO
 Resolved: No
-Start Time: Thu Feb 20 15:54:18 2025End Time: Not Resolved
+Start Time: Thu Feb 20 15:54:18 2025
+End Time: Not Resolved
 --------------------------
-Report Number:  REPORT-3
+Report Number:   REPORT-3
 Location: TERREBONNE
 Code/Situation: BROKEN CAR
 Caller ID: J8
 Description: CAR STOPPED WORKING
 Contact Route: MESSENGER
-Resolved: No
-Start Time: Thu Feb 20 15:55:13 2025End Time: Not Resolved
+Resolved: Yes
+Start Time: Thu Feb 20 15:55:13 2025
+End Time: Thu Feb 20 16:40:34 2025
 --------------------------

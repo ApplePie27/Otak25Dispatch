@@ -1,11 +1,34 @@
 #include "FileHandler.h"
+#include "DispatchCall.h"
 #include <iostream>
 #include <sstream>
 #include <iomanip>
 
 using namespace std;
 
-// Helper function to parse time strings
+// Implementation of safeTimeToString
+string safeTimeToString(const chrono::system_clock::time_point& timePoint) {
+    time_t time = chrono::system_clock::to_time_t(timePoint);
+    char buffer[26]; // Buffer to hold the time string
+
+    // Use ctime_s if available, otherwise fall back to ctime
+#ifdef _WIN32
+    if (ctime_s(buffer, sizeof(buffer), &time) != 0) {
+        return "Invalid Time";
+    }
+#else
+    if (ctime_r(&time, buffer) == nullptr) {
+        return "Invalid Time";
+    }
+#endif
+
+    // Remove the newline character added by ctime
+    string timeStr(buffer);
+    timeStr.erase(timeStr.find_last_not_of('\n') + 1);
+    return timeStr;
+}
+
+// Implementation of parseTime
 chrono::system_clock::time_point parseTime(const string& timeStr) {
     tm tm = {};
     istringstream ss(timeStr);
@@ -38,8 +61,8 @@ void logDispatchCall(const DispatchCall& call) {
         << "Description: " << call.description << "\n"
         << "Contact Route: " << call.contactRoute << "\n"
         << "Resolved: " << (call.resolved ? "Yes" : "No") << "\n"
-        << "Start Time: " << startTimeStr
-        << "End Time: " << endTimeStr << "\n"
+        << "Start Time: " << startTimeStr << "\n" // Add newline after Start Time
+        << "End Time: " << endTimeStr << "\n"     // Add newline after End Time
         << "--------------------------\n";
 
     // Log to .csv file

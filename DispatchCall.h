@@ -3,6 +3,7 @@
 
 #include <string>
 #include <chrono>
+#include <vector>
 
 using namespace std;
 
@@ -20,6 +21,7 @@ struct DispatchCall {
 
 // Function declarations
 string generateReportNumber();
-string safeTimeToString(const chrono::system_clock::time_point& timePoint); // Declaration
+string safeTimeToString(const chrono::system_clock::time_point& timePoint);
+chrono::system_clock::time_point parseTime(const string& timeStr);
 
 #endif

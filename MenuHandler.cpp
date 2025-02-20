@@ -74,8 +74,8 @@ void viewAllCalls(const vector<DispatchCall>& calls) {
             << "Description: " << call.description << "\n"
             << "Contact Route: " << call.contactRoute << "\n"
             << "Resolved: " << (call.resolved ? "Yes" : "No") << "\n"
-            << "Start Time: " << startTimeStr
-            << "End Time: " << endTimeStr << "\n"
+            << "Start Time: " << startTimeStr << "\n" // Add newline after Start Time
+            << "End Time: " << endTimeStr << "\n"     // Add newline after End Time
             << "--------------------------\n";
     }
 }
@@ -102,8 +102,8 @@ void modifyCall(vector<DispatchCall>& calls) {
                 << "5. Contact Route: " << call.contactRoute << "\n"
                 << "6. Resolved: " << (call.resolved ? "Yes" : "No") << "\n"
                 << "7. Resolve the Report (Set Resolved to Yes)\n"
-                << "Start Time: " << startTimeStr
-                << "End Time: " << endTimeStr << "\n";
+                << "Start Time: " << startTimeStr << "\n" // Add newline after Start Time
+                << "End Time: " << endTimeStr << "\n";    // Add newline after End Time
 
             int fieldChoice;
             cout << "Enter the number of the field to modify (1-7): ";
