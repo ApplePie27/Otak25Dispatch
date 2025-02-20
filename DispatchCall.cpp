@@ -63,7 +63,7 @@ int initializeReportCounter() {
             }
         }
     }
-
+    
     txtFile.close();
     return maxReportNumber;
 }
