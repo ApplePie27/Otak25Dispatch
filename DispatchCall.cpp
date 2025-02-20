@@ -1,9 +1,31 @@
 #include "DispatchCall.h"
-#include <fstream>
+#include <ctime>
+#include <iomanip>
 #include <sstream>
-#include <algorithm>
 
 using namespace std;
+
+// Helper function to convert time_point to string
+string safeTimeToString(const chrono::system_clock::time_point& timePoint) {
+    time_t time = chrono::system_clock::to_time_t(timePoint);
+    char buffer[26]; // Buffer to hold the time string
+
+    // Use ctime_s if available, otherwise fall back to ctime
+#ifdef _WIN32
+    if (ctime_s(buffer, sizeof(buffer), &time) {
+        return "Invalid Time";
+    }
+#else
+    if (ctime_r(&time, buffer) == nullptr) {
+        return "Invalid Time";
+    }
+#endif
+
+    // Remove the newline character added by ctime
+    string timeStr(buffer);
+        timeStr.erase(timeStr.find_last_not_of('\n') + 1);
+    return timeStr;
+}
 
 // Helper function to extract the numeric part of the report number
 int extractReportNumber(const string& reportNumber) {

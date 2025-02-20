@@ -20,6 +20,6 @@ struct DispatchCall {
 
 // Function declarations
 string generateReportNumber();
-string safeTimeToString(const chrono::system_clock::time_point& timePoint);
+string safeTimeToString(const chrono::system_clock::time_point& timePoint); // Declaration
 
 #endif
