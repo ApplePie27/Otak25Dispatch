@@ -11,7 +11,6 @@ string safeTimeToString(const chrono::system_clock::time_point& timePoint) {
     time_t time = chrono::system_clock::to_time_t(timePoint);
     char buffer[26]; // Buffer to hold the time string
 
-    // Use ctime_s if available, otherwise fall back to ctime
 #ifdef _WIN32
     if (ctime_s(buffer, sizeof(buffer), &time) != 0) {
         return "Invalid Time";
@@ -22,7 +21,6 @@ string safeTimeToString(const chrono::system_clock::time_point& timePoint) {
     }
 #endif
 
-    // Remove the newline character added by ctime
     string timeStr(buffer);
     timeStr.erase(timeStr.find_last_not_of('\n') + 1);
     return timeStr;
@@ -61,8 +59,8 @@ void logDispatchCall(const DispatchCall& call) {
         << "Description: " << call.description << "\n"
         << "Contact Route: " << call.contactRoute << "\n"
         << "Resolved: " << (call.resolved ? "Yes" : "No") << "\n"
-        << "Start Time: " << startTimeStr << "\n" // Add newline after Start Time
-        << "End Time: " << endTimeStr << "\n"     // Add newline after End Time
+        << "Start Time: " << startTimeStr << "\n"
+        << "End Time: " << endTimeStr << "\n"
         << "--------------------------\n";
 
     // Log to .csv file
@@ -75,14 +73,16 @@ void logDispatchCall(const DispatchCall& call) {
         << (call.resolved ? "Yes" : "No") << ","
         << startTimeStr << ","
         << endTimeStr << "\n";
-
-    txtFile.close();
-    csvFile.close();
 }
 
 void saveDataToFile(const std::vector<DispatchCall>& calls) {
     ofstream txtFile("dispatch_log.txt");
     ofstream csvFile("dispatch_log.csv");
+
+    if (!txtFile.is_open() || !csvFile.is_open()) {
+        cerr << "Error opening file for saving data!" << endl;
+        return;
+    }
 
     for (const auto& call : calls) {
         logDispatchCall(call); // Re-log all calls to update files
@@ -127,7 +127,7 @@ bool loadDataFromFile(std::vector<DispatchCall>& calls) {
         else if (line.find("Start Time: ") != string::npos) {
             string timeStr = line.substr(12);
             try {
-                call.startTime = parseTime(timeStr); // Parse start time
+                call.startTime = parseTime(timeStr);
             }
             catch (const exception& e) {
                 cerr << "Error parsing Start Time: " << e.what() << endl;
@@ -138,7 +138,7 @@ bool loadDataFromFile(std::vector<DispatchCall>& calls) {
             string timeStr = line.substr(10);
             if (timeStr != "Not Resolved") {
                 try {
-                    call.endTime = parseTime(timeStr); // Parse end time
+                    call.endTime = parseTime(timeStr);
                 }
                 catch (const exception& e) {
                     cerr << "Error parsing End Time: " << e.what() << endl;
@@ -156,6 +156,5 @@ bool loadDataFromFile(std::vector<DispatchCall>& calls) {
         }
     }
 
-    txtFile.close();
     return true;
 }
