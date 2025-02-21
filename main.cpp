@@ -7,7 +7,8 @@ using namespace std;
 
 int main() {
     vector<DispatchCall> calls;
-    cout << "VERSION 1.8 DISPATCH LOGGER - nhpha" << endl;
+    bool dataModified = false; // Flag to track if data has been modified
+    cout << "VERSION 1.10 DISPATCH LOGGER - nhpha" << endl;
 
     // Load data from file at startup
     if (loadDataFromFile(calls)) {
@@ -19,6 +20,12 @@ int main() {
 
     int choice;
     do {
+        // Save data only if it has been modified
+        if (dataModified) {
+            saveDataToFile(calls);
+            dataModified = false; // Reset the flag after saving
+        }
+
         cout << "\nDispatch Call Logging System\n";
         cout << "1. Add New Call\n";
         cout << "2. View All Calls\n";
@@ -32,15 +39,18 @@ int main() {
         switch (choice) {
         case 1:
             addCall(calls);
+            dataModified = true; // Set the flag
             break;
         case 2:
             viewAllCalls(calls);
             break;
         case 3:
             modifyCall(calls);
+            dataModified = true; // Set the flag
             break;
         case 4:
             resolveCall(calls);
+            dataModified = true; // Set the flag
             break;
         case 5:
             saveDataToFile(calls); // Save data before exiting

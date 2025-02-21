@@ -1,4 +1,4 @@
-Report Number:     REPORT-1
+Report Number:       REPORT-1
 Location: MONTREAL
 Code/Situation: STOLEN BIKE
 Caller ID: D4
@@ -8,7 +8,7 @@ Resolved: Yes
 Start Time: Thu Feb 20 15:54:00 2025
 End Time: Not Resolved
 --------------------------
-Report Number:     REPORT-2
+Report Number:       REPORT-2
 Location: LAVAL
 Code/Situation: FIRE
 Caller ID: K2
@@ -18,7 +18,7 @@ Resolved: No
 Start Time: Thu Feb 20 15:54:18 2025
 End Time: Not Resolved
 --------------------------
-Report Number:    REPORT-3
+Report Number:      REPORT-3
 Location: TERREBONNE
 Code/Situation: BROKEN CAR
 Caller ID: J8
@@ -28,7 +28,7 @@ Resolved: Yes
 Start Time: Thu Feb 20 15:55:13 2025
 End Time: Thu Feb 20 16:40:34 2025
 --------------------------
-Report Number:  REPORT-4
+Report Number:    REPORT-4
 Location: test
 Code/Situation: test
 Caller ID: test
@@ -38,7 +38,7 @@ Resolved: Yes
 Start Time: Thu Feb 20 16:48:22 2025
 End Time: Thu Feb 20 19:10:16 2025
 --------------------------
-Report Number: REPORT-5
+Report Number:   REPORT-5
 Location: MONTREAL
 Code/Situation: TEST
 Caller ID: TEST
@@ -47,4 +47,14 @@ Contact Route: MORSE
 Resolved: Yes
 Start Time: Thu Feb 20 19:10:49 2025
 End Time: Thu Feb 20 19:10:59 2025
+--------------------------
+Report Number:  REPORT-6
+Location: ASDF
+Code/Situation: ASDF
+Caller ID: ASDF
+Description: ASDF
+Contact Route: ASDF
+Resolved: No
+Start Time: Thu Feb 20 19:19:27 2025
+End Time: Not Resolved
 --------------------------
