@@ -1,6 +1,7 @@
 #include "MenuHandler.h"
 #include "FileHandler.h"
 #include <iostream>
+#include <iomanip>
 #include <algorithm> // For std::remove_if and std::isspace
 
 using namespace std;
@@ -61,23 +62,54 @@ void viewAllCalls(const vector<DispatchCall>& calls) {
         return;
     }
 
+    // Define column widths
+    const int col1 = 15; // Report Number
+    const int col2 = 20; // Location
+    const int col3 = 20; // Code/Situation
+    const int col4 = 15; // Caller ID
+    const int col5 = 30; // Description
+    const int col6 = 15; // Contact Route
+    const int col7 = 10; // Resolved
+    const int col8 = 25; // Start Time
+    const int col9 = 25; // End Time
+
+    // Print header
+    cout << "\n"
+        << left << setw(col1) << "Report Number"
+        << left << setw(col2) << "Location"
+        << left << setw(col3) << "Code/Situation"
+        << left << setw(col4) << "Caller ID"
+        << left << setw(col5) << "Description"
+        << left << setw(col6) << "Contact Route"
+        << left << setw(col7) << "Resolved"
+        << left << setw(col8) << "Start Time"
+        << left << setw(col9) << "End Time"
+        << "\n";
+
+    // Print separator line
+    cout << string(col1 + col2 + col3 + col4 + col5 + col6 + col7 + col8 + col9, '-') << "\n";
+
+    // Print each call
     for (const auto& call : calls) {
         string startTimeStr = safeTimeToString(call.startTime);
         string endTimeStr = (call.endTime != chrono::system_clock::time_point{})
             ? safeTimeToString(call.endTime)
             : "Not Resolved";
 
-        cout << "\n" << "Report Number: " << call.reportNumber << "\n"
-            << "Location: " << call.location << "\n"
-            << "Code/Situation: " << call.codeSituation << "\n"
-            << "Caller ID: " << call.callerID << "\n"
-            << "Description: " << call.description << "\n"
-            << "Contact Route: " << call.contactRoute << "\n"
-            << "Resolved: " << (call.resolved ? "Yes" : "No") << "\n"
-            << "Start Time: " << startTimeStr << "\n"
-            << "End Time: " << endTimeStr << "\n"
-            << "--------------------------\n";
+        cout << left << setw(col1) << call.reportNumber
+            << left << setw(col2) << call.location
+            << left << setw(col3) << call.codeSituation
+            << left << setw(col4) << call.callerID
+            << left << setw(col5) << call.description
+            << left << setw(col6) << call.contactRoute
+            << left << setw(col7) << (call.resolved ? "Yes" : "No")
+            << left << setw(col8) << startTimeStr
+            << left << setw(col9) << endTimeStr
+            << "\n";
     }
+
+    // Print separator line at the end
+    cout << string(col1 + col2 + col3 + col4 + col5 + col6 + col7 + col8 + col9, '-') << "\n";
 }
 
 void modifyCall(vector<DispatchCall>& calls) {
