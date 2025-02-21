@@ -74,8 +74,8 @@ void viewAllCalls(const vector<DispatchCall>& calls) {
             << "Description: " << call.description << "\n"
             << "Contact Route: " << call.contactRoute << "\n"
             << "Resolved: " << (call.resolved ? "Yes" : "No") << "\n"
-            << "Start Time: " << startTimeStr << "\n" // Add newline after Start Time
-            << "End Time: " << endTimeStr << "\n"     // Add newline after End Time
+            << "Start Time: " << startTimeStr << "\n"
+            << "End Time: " << endTimeStr << "\n"
             << "--------------------------\n";
     }
 }
@@ -87,7 +87,7 @@ void modifyCall(vector<DispatchCall>& calls) {
     reportNumber = trim(reportNumber); // Trim whitespace
 
     for (auto& call : calls) {
-        if (trim(call.reportNumber) == reportNumber) { // Trim whitespace from stored report number
+        if (trim(call.reportNumber) == reportNumber) {
             cout << "Current Details:\n";
             string startTimeStr = safeTimeToString(call.startTime);
             string endTimeStr = (call.endTime != chrono::system_clock::time_point{})
@@ -102,8 +102,8 @@ void modifyCall(vector<DispatchCall>& calls) {
                 << "5. Contact Route: " << call.contactRoute << "\n"
                 << "6. Resolved: " << (call.resolved ? "Yes" : "No") << "\n"
                 << "7. Resolve the Report (Set Resolved to Yes)\n"
-                << "Start Time: " << startTimeStr << "\n" // Add newline after Start Time
-                << "End Time: " << endTimeStr << "\n";    // Add newline after End Time
+                << "Start Time: " << startTimeStr << "\n"
+                << "End Time: " << endTimeStr << "\n";
 
             int fieldChoice;
             cout << "Enter the number of the field to modify (1-7): ";
@@ -166,7 +166,7 @@ void resolveCall(vector<DispatchCall>& calls) {
     reportNumber = trim(reportNumber); // Trim whitespace
 
     for (auto& call : calls) {
-        if (trim(call.reportNumber) == reportNumber) { // Trim whitespace from stored report number
+        if (trim(call.reportNumber) == reportNumber) {
             if (call.resolved) {
                 cout << "This call is already resolved!" << endl;
             }
